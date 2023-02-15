@@ -1,8 +1,8 @@
 # Initially forked from https://git.centos.org/rpms/haproxy/tree/c8
 # by Benoit Dolez <bdolez at zenetys.com>
 
-%define major           2.7
-%define minor           3
+%define major           2.4
+%define minor           22
 
 %define haproxy_user    haproxy
 %define haproxy_group   %{haproxy_user}
@@ -16,9 +16,9 @@
 %global _hardened_build 1
 %global debug_package   %{nil}
 
-Name:           haproxy27z
+Name:           haproxy
 Version:        %{major}.%{minor}
-Release:        1%{?dist}.zenetys
+Release:        1%{?dist}
 Summary:        HAProxy reverse proxy for high availability environments
 
 Group:          System Environment/Daemons
@@ -108,7 +108,7 @@ setns_opts="USE_NS="
 %{__make} \
     %{?_smp_mflags} \
     CPU="generic" TARGET="linux-glibc" \
-    USE_OPENSSL=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 \
+    USE_OPENSSL=1 USE_PCRE=1 USE_ZLIB=1 USE_LUA=1 USE_PROMEX=1 \
     USE_CRYPT_H=1 \
     USE_LINUX_TPROXY=1 \
     USE_GETADDRINFO=1 \
